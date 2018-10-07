@@ -1,0 +1,96 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+*.iws
+# IntelliJ
+/out/
+# Moduly
+.idea_modules/
+# JIRA plugin
+atlassian-ide-plugin.xml
+# Clojure plugin
+.idea/replstate.xml
+# Crashlytics plugin - analizator bledow
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+.idea/**/gradle.xml
+.idea/**/libraries
+
+cmake-build-debug/
+
+.idea/**/mongoSettings.xml
+*.iws
+
+/out/
+
+.idea_modules/
+
+
+atlassian-ide-plugin.xml
+
+.idea/replstate.xml
+
+/.rakeTasks
+
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+.idea/
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
+/.images/
