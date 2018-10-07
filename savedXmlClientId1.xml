@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<requests>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>1</requestId>
+        <requestName>Pizza Salami</requestName>
+        <requestUuid>7272ea09-0ddd-4f95-9f36-f0139c0e497a</requestUuid>
+        <quantity>3</quantity>
+        <price>24.50</price>
+    </request>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>2</requestId>
+        <requestName>Pizza Mexico</requestName>
+        <requestUuid>a90db730-5b7a-4766-9b4b-dd387f3c2d92</requestUuid>
+        <quantity>2</quantity>
+        <price>29.50</price>
+    </request>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>3</requestId>
+        <requestName>Pepsi 1L</requestName>
+        <requestUuid>e393d603-b840-4e65-a310-8a43a9956975</requestUuid>
+        <quantity>5</quantity>
+        <price>4.58</price>
+    </request>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>4</requestId>
+        <requestName>Jack Daniels 1L</requestName>
+        <requestUuid>ebd1e26f-e608-48ce-ba6e-ef82d236f5ec</requestUuid>
+        <quantity>2</quantity>
+        <price>99.20</price>
+    </request>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>5</requestId>
+        <requestName>RedBull</requestName>
+        <requestUuid>a015c359-a96a-4033-babd-d1ebb4d9a406</requestUuid>
+        <quantity>1</quantity>
+        <price>6.02</price>
+    </request>
+    <totalPrice>163.80</totalPrice>
+    <avgPrice>32.76</avgPrice>
+    <totalCounter>5</totalCounter>
+</requests>
