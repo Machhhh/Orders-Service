@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<requests>
+    <request>
+        <clientId>2</clientId>
+        <clientName>Spiderman</clientName>
+        <requestId>6</requestId>
+        <requestName>Suzuki GSR 750</requestName>
+        <requestUuid>32c3e597-e112-434d-aa60-0e25eaf1b65d</requestUuid>
+        <quantity>1</quantity>
+        <price>21500.00</price>
+    </request>
+    <request>
+        <clientId>2</clientId>
+        <clientName>Spiderman</clientName>
+        <requestId>7</requestId>
+        <requestName>BMW X6</requestName>
+        <requestUuid>6a1bceba-d43c-4030-960b-39f52eb2004d</requestUuid>
+        <quantity>1</quantity>
+        <price>197000.00</price>
+    </request>
+    <totalPrice>218500.00</totalPrice>
+    <avgPrice>109250.00</avgPrice>
+    <totalCounter>2</totalCounter>
+</requests>
