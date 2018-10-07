@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<requests>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Batman</clientName>
+        <requestId>1</requestId>
+        <requestName>Pizza</requestName>
+        <requestUuid>534426f2-5531-4e97-92ae-68f4bd20ec2b</requestUuid>
+        <quantity>55</quantity>
+        <price>5.99</price>
+    </request>
+    <request>
+        <clientId>1</clientId>
+        <clientName>Lolek</clientName>
+        <requestId>2</requestId>
+        <requestName>Beer</requestName>
+        <requestUuid>467g36f2-5531-4e97-92ae-68dghyrfeswa</requestUuid>
+        <quantity>91</quantity>
+        <price>7.11</price>
+    </request>
+</requests>
