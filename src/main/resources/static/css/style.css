@@ -368,4 +368,10 @@ a:hover, .btn {
 .sidebar-buttons:hover {
     background-color: #01d001;
 }
+/*background image*/
+.responsive {
+    width: 100%;
+    height: 100%;
+}
+
 
