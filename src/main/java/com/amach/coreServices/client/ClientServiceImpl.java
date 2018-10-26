@@ -1,5 +1,6 @@
 package com.amach.coreServices.client;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -11,13 +12,15 @@ class ClientServiceImpl implements ClientService {
 
 
     private ClientMapper clientMapper;
-
     private ClientRepository clientRepository;
+    private PasswordEncoder passwordEncoder;
 
     ClientServiceImpl(final ClientMapper clientMapper,
-                      final ClientRepository clientRepository) {
+                      final ClientRepository clientRepository,
+                      PasswordEncoder passwordEncoder) {
         this.clientMapper = clientMapper;
         this.clientRepository = clientRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -46,6 +49,11 @@ class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public Boolean existsByLogin(String login) {
+        return clientRepository.existsByLogin(login);
+    }
+
+    @Override
     public ClientDto findByName(final String name) {
         return clientMapper.toClientDto(clientRepository.findByName(name));
     }
@@ -54,8 +62,17 @@ class ClientServiceImpl implements ClientService {
     public ClientCreateDto create(final ClientCreateDto dto) {
         Client client = Client.create()
                 .name(dto.getName())
+                .email(dto.getEmail())
+                .login(dto.getLogin())
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .role("ROLE_USER")
                 .build();
         return clientMapper.toClientCreateDto(clientRepository.save(client));
+    }
+
+    @Override
+    public Client findByLogin(String login) {
+        return clientRepository.findByLogin(login);
     }
 
     @Override

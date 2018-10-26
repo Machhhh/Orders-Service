@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
@@ -35,10 +36,8 @@ public class MainController {
         this.mfc = mfc;
     }
 
-    @RequestMapping("/")
-    public String index(final Model model) {
-        model.addAttribute("requests", reportFacade.getAllRequests());
-        model.addAttribute("clients", clientFacade.getClientDtoList());
+    @RequestMapping({"/", "/index"})
+    public String index() {
         return "index";
     }
 
@@ -49,7 +48,7 @@ public class MainController {
         return "about";
     }
 
-    @GetMapping("/requests")
+    @GetMapping({"/admin/requests", "/requests"})
     public String list(final Model model) {
         model.addAttribute("requests", reportFacade.getAllRequests());
         model.addAttribute("totalPrice",
@@ -87,9 +86,12 @@ public class MainController {
     }
 
     @PostMapping("/request")
-    public String update(final RequestDto dto) {
+    public String update(final RequestDto dto, HttpServletRequest request) {
         reportFacade.save(dto);
-        return "redirect:/requests";
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            return "redirect:/requests";
+        }
+        return "redirect:/client/requests";
     }
 
     @GetMapping("/requests/save-xml")

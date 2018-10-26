@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-interface ClientRepository extends CrudRepository<Client, Long> {
+public interface ClientRepository extends CrudRepository<Client, Long> {
 
     Set<Client> findAll();
 
@@ -15,6 +15,10 @@ interface ClientRepository extends CrudRepository<Client, Long> {
     Client findByName(String name);
 
     Client findById(Long id);
+
+    Client findByLogin(String login);
+
+    Boolean existsByLogin(String login);
 
     void removeByUuid(String uuid);
 }

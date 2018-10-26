@@ -12,6 +12,8 @@ interface ClientService {
 
     Client findById(Long id);
 
+    Client findByLogin(String login);
+
     ClientDto findByName(String name);
 
     ClientCreateDto create(ClientCreateDto dto);
@@ -19,6 +21,8 @@ interface ClientService {
     Client create(ClientDto dto);
 
     Boolean existsById(Long id);
+
+    Boolean existsByLogin(String login);
 
     void removeByUuid(String uuid);
 }
