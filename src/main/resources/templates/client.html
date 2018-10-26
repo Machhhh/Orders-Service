@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Orders Service</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar">
+                <div>
+                    <a href="#" th:href="@{/}">
+                        <button type="button" class="btn btn-success btn-lg sidebar-buttons">Add new
+                        </button>
+                    </a>
+                </div>
+                <div>
+                    <img src="/static/img/main.jpg" th:src="@{/img/client.jpg}" alt="logo"
+                         class="sidebar-buttons">
+                </div>
+                <br><br><br><br><br>
+                <div class="report">
+                    <ul class="btn-group-vertical" data-toggle="buttons"
+                        style="position: fixed">
+                        <li style="font-size: 20px">
+                            <span th:text="'Client Id:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:if="${not #lists.isEmpty(requestsById)}"
+                                  th:text="' ' + ${requestsById.get(0).clientId}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Total number:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' ' + ${#lists.size(requestsById)}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Total Price:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' '+ ${totalPriceById}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Average price:  ' "></span>
+                            <span style="color: #289dcc;" class="border border-success"
+                                  th:text="' '+${avgValueById}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <br><br><br><br><br>
+            <div th:if="${not #lists.isEmpty(requestsById)}">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Req_Id</th>
+                        <th>Req_Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="request : ${requestsById}">
+                        <td th:text="${request.requestId}">RequestId</td>
+                        <td th:text="${request.name}">Name</td>
+                        <td th:text="${request.quantity}">Quantity</td>
+                        <td th:text="${request.price}">Price</td>
+                        <td><a style="color: #289dcc"
+                               th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
+                        <td><a style="color: red"
+                               th:href="${'/requests/delete/'+ request.requestId}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        </div>
+    </div>
+</div>
+<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</body>
+</html>
