@@ -7,7 +7,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 @Builder(builderMethodName = "create")
@@ -25,6 +24,12 @@ public class Client extends BaseEntity {
     @NotNull
     @Size(max = 255)
     private String name;
+    private String login;
+    private String password;
+    private String email;
+    private String role;
     @OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
     private List<Request> requests;
+/*    @OneToOne
+    private Authority authority;*/
 }

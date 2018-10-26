@@ -15,5 +15,6 @@ public class ClientDto {
     private Long clientId;
     private String uuid;
     private String name;
+    private String role;
     private List<RequestDto> requestDtoList;
 }

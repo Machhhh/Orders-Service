@@ -27,12 +27,20 @@ public class ClientFacade {
         return clientService.create(dto);
     }
 
+    public Client getClientByLogin(final String login) {
+        return clientService.findByLogin(login);
+    }
+
     public ClientDto getClientDtoByUuid(final String uuid) {
         return clientService.findOneByUuid(uuid);
     }
 
     public ClientDto getClientDtoByName(final String name) {
         return clientService.findByName(name);
+    }
+
+    public Boolean isClientExists(String login) {
+        return clientService.existsByLogin(login);
     }
 
     public List<ClientDto> getClientDtoList() {
