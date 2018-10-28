@@ -8,75 +8,8 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
     <div class="row">
-        <div class="col-md-3">
-            <div class="sidebar">
-                <div>
-                    <a href="#" th:href="@{/requests}">
-                        <button type="button" class="btn btn-success btn-lg sidebar-buttons">All Requests
-                        </button>
-                    </a>
-                </div>
-                <div>
-                    <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-success btn-lg sidebar-buttons " data-toggle="modal"
-                            data-target="#myModal">
-                        Request by Client Id
-                    </button>
-                    <!-- The Modal -->
-                    <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="background-color: black">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Existing Clients: </h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <ul th:if="${not #lists.isEmpty(clients)}" th:each="client : ${clients}">
-                                        <li th:if="${not #lists.isEmpty(client.getRequestDtoList())}">
-                                            <a th:href="${'/requests/clients/'+ client.clientId}">Client Id:
-                                                <span th:text="${client.clientId + ', Name: ' + client.getName()}"></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Back
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br><br><br><br><br><br>
-                <span class="border border-success"
-                      style="font-size: 15px; margin-left: 90px">Upload Files</span>
-                <div class="form-group sidebar-buttons">
-                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-xml}" method="post"
-                          enctype="multipart/form-data">
-                        <div class="custom-file">
-                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile03"/>
-                            <label class="custom-file-label" for="inputGroupFile03">XML file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <input type="submit" value="Upload" class="input-group-text"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="form-group sidebar-buttons">
-                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-csv}" method="post"
-                          enctype="multipart/form-data">
-                        <div class="custom-file">
-                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile04"/>
-                            <label class="custom-file-label" for="inputGroupFile03">CSV file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <input type="submit" value="Upload" class="input-group-text"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="col-md-12">
+            <img src="/static/img/main.jpg" th:src="@{/img/main.jpg}" alt="logo" class="responsive">
         </div>
     </div>
 </div>

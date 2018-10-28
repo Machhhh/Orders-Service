@@ -7,17 +7,20 @@ import com.amach.coreServices.request.RequestFacade;
 import com.amach.coreServices.utils.MultipartFileConverter;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import scala.tools.jline_embedded.internal.Log;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 @Controller
+@Log4j
 public class MainController {
 
     private ReportFacade reportFacade;
@@ -77,17 +80,32 @@ public class MainController {
         return "clientRequests";
     }
 
-    @RequestMapping("/requests/edit/{id}")
+    @GetMapping("/requests/edit/{id}")
     public String edit(@PathVariable final Long id, final Model model) {
         model.addAttribute("requestById", reportFacade.getRequestById(id));
         model.addAttribute("requestsById",
                 reportFacade.getAllRequestByClientId(id));
-        return "requestForm";
+        return "requestEdit";
+    }
+
+    @GetMapping("/clients/{clientId}/requests/remove/{requestId}")
+    public String remove(@PathVariable final Long clientId,
+                         @PathVariable final Long requestId,
+                         final HttpServletRequest request) {
+        requestFacade.removeByRequestIdAndClientId(requestId, clientId);
+        Log.info("Client id: " + clientId + "," +
+                " request id: " + requestId + " removed successfully");
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            return "redirect:/admin/requests";
+        }
+        return "redirect:/client/requests";
     }
 
     @PostMapping("/request")
-    public String update(final RequestDto dto, HttpServletRequest request) {
-        reportFacade.save(dto);
+    public String update(final RequestDto dto, final HttpServletRequest request) {
+        reportFacade.update(dto);
+        Log.info("Request name: " + dto.getName() + ", for client id: "
+                + dto.getClientId() + " updated successfully");
         if (request.isUserInRole("ROLE_ADMIN")) {
             return "redirect:/requests";
         }

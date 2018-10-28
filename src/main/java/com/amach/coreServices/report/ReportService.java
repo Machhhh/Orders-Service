@@ -17,7 +17,7 @@ interface ReportService {
 
     RequestDto getRequestById(Long id);
 
-    RequestDto save(RequestDto dto);
+    RequestDto update(RequestDto dto);
 
     void saveToXml(List<RequestDto> dtoList) throws JAXBException, IOException;
 

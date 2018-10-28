@@ -23,4 +23,6 @@ interface RequestRepository extends PagingAndSortingRepository<Request, Long> {
     void removeByUuid(String uuid);
 
     void removeAllByClientUuid(String uuid);
+
+    void removeByRequestIdAndAndClientId(Long reqId, Long clientId);
 }

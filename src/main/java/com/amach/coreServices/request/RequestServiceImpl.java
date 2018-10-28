@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Log4j
+@Transactional
 class RequestServiceImpl implements RequestService {
 
     private RequestMapper reqMap;
@@ -192,6 +194,11 @@ class RequestServiceImpl implements RequestService {
                     .size()), RoundingMode.DOWN);
         }
         return sum;
+    }
+
+    @Override
+    public void removeByRequestIdAndClientId(Long reqId, Long clientId) {
+        reqRep.removeByRequestIdAndAndClientId(reqId, clientId);
     }
 
     @Override

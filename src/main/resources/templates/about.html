@@ -8,58 +8,31 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
     <div class="row">
-        <div class="col-md-3">
-            <div class="sidebar">
-                <div>
-                    <a href="#" th:href="@{/requests}">
-                        <button type="button" class="btn btn-success btn-lg sidebar-buttons">All Requests
-                        </button>
-                    </a>
-                </div>
-                <br><br><br><br><br><br><br><br><br>
-                <span class="border border-success"
-                      style="font-size: 15px; margin-left: 90px">Upload Files</span>
-                <div class="form-group sidebar-buttons">
-                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-xml}" method="post"
-                          enctype="multipart/form-data">
-                        <div class="custom-file">
-                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile03"/>
-                            <label class="custom-file-label" for="inputGroupFile03">XML file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <input type="submit" value="Upload" class="input-group-text"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="form-group sidebar-buttons">
-                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-csv}" method="post"
-                          enctype="multipart/form-data">
-                        <div class="custom-file">
-                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile04"/>
-                            <label class="custom-file-label" for="inputGroupFile03">CSV file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <input type="submit" value="Upload" class="input-group-text"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <br><br><br><br><br>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <br><br><br><br><br><br>
             <div>
                 <ol style="font-size: 20px; alignment: center; text-align-all: center">
-                    <li>The application <b>OrdeRs Service</b> is used to generate and manage requests  stored in</li>
-                    <li> the database.</li>
-                    <li>You can create request using Swagger, REST endpoints or upload them from </li>
-                    <li>CSV, XML file by appropriate buttons.</li>
-                    <li>Easy access to the database by hyperlink "H2" and default login: <b>admin</b>,</li>
-                    <li> password: <b>pass</b>, <b>jdbc:h2:mem:CS</b>.</li>
-                    <li>Possibility to generate, print and save in the file, following reports : All Requests </li>
-                    <li>or Requests By Client Id ( total count , total value, average value of requests)</li>
+                    <li><b>OrdeRs Service</b> is Spring Boot + JPA / Hibernate web application.
+                        Easy way to generate and manage client requests stored in the database.
+                    </li>
                 </ol>
             </div>
+            <div>
+                <img src="/static/img/about.jpg" th:src="@{/img/about.jpg}"
+                     alt="about"
+                     style="width: 8cm; height: 8cm; margin-left: 30%">
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="color: #01d001; margin-left: 12%">
+                        <b>"I reach where the eye does not reach, and there is a NullPointerException "</b>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->

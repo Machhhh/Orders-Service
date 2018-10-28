@@ -44,4 +44,6 @@ interface RequestService {
     BigDecimal getAverageValueFromAllRequests();
 
     BigDecimal getAverageValueOfClientRequests(Long id);
+
+    void removeByRequestIdAndClientId(Long reqId, Long clientId);
 }

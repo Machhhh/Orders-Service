@@ -10,128 +10,140 @@
     <div class="row">
         <div class="col-md-3">
             <div class="sidebar ">
-        <div>
-            <a href="#" th:href="@{/requests}">
-                <button type="button" class="btn btn-success btn-lg sidebar-buttons">All Requests
-                </button>
-            </a>
-        </div>
-        <div>
-            <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-success btn-lg sidebar-buttons " data-toggle="modal"
-                    data-target="#myModal">
-                Request by Client Id
-            </button>
-            <!-- The Modal -->
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content" style="background-color: black">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Existing Clients: </h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <ul th:if="${not #lists.isEmpty(clients)}" th:each="client : ${clients}">
-                                <li th:if="${not #lists.isEmpty(client.getRequestDtoList())}">
-                                    <a th:href="${'/requests/clients/'+ client.clientId}">Client Id:
-                                        <span th:text="${client.clientId + ', Name: ' + client.getName()}"></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Back
-                            </button>
+                <div>
+                    <a href="#" th:href="@{/requests}">
+                        <button type="button" class="btn btn-success btn-lg sidebar-buttons">All Requests
+                        </button>
+                    </a>
+                </div>
+                <div>
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-success btn-lg sidebar-buttons " data-toggle="modal"
+                            data-target="#myModal">
+                        Request by Client Id
+                    </button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background-color: black">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Existing Clients: </h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <ul th:if="${not #lists.isEmpty(clients)}" th:each="client : ${clients}">
+                                        <li th:if="${not #lists.isEmpty(client.getRequestDtoList())}">
+                                            <a th:href="${'/requests/clients/'+ client.clientId}">Client Id :
+                                                <span th:text="${client.clientId}"
+                                                      style="color: #289dcc"></span>
+                                                <span th:text="${', Name : ' + client.getName()}"></span>
+                                                <span>, Total requests : </span>
+                                                <span th:text="${client.getRequestDtoList().size()}"
+                                                      style="color: red"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Back
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="report">
+                    <ul class="btn-group-vertical" data-toggle="buttons">
+                        <li style="font-size: 20px">
+                            <span th:text="'Total number:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' ' + ${#lists.size(requests)}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Total Price:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' '+ ${totalPrice}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Average price:  ' "></span>
+                            <span style="color: #289dcc;" class="border border-success"
+                                  th:text="' '+${avgValue}"></span>
+                        </li>
+                    </ul>
+                </div>
+                <br><br><br><br><br><br>
+                <span class="border border-success"
+                      style="font-size: 15px; margin-left: 90px">Upload Files</span>
+                <div class="form-group sidebar-buttons">
+                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-xml}" method="post"
+                          enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile03"/>
+                            <label class="custom-file-label" for="inputGroupFile03">XML file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input type="submit" value="Upload" class="input-group-text"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group sidebar-buttons">
+                    <form class="input-group mb-3" action="#" th:action="@{/requests/upload-csv}" method="post"
+                          enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile04"/>
+                            <label class="custom-file-label" for="inputGroupFile03">CSV file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input type="submit" value="Upload" class="input-group-text"/>
+                        </div>
+                    </form>
+                </div>
+                <div th:if="${not #lists.isEmpty(requests)}">
+                    <a th:href="@{/requests/save-xml}">
+                        <button type="button" class="btn btn-success btn-sm save-buttons">Save To XML
+                        </button>
+                    </a>
+                    <a th:href="@{/requests/save-csv}">
+                        <button type="button" class="btn btn-success btn-sm save-buttons">Save To CSV
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="report">
-            <ul class="btn-group-vertical" data-toggle="buttons">
-                <li style="font-size: 20px">
-                    Total number:
-                    <span class="border border-success" th:text="${#lists.size(requests)}"></span>
-                </li>
-                <li style="font-size: 20px">
-                    Total Price:
-                    <span class="border border-success" th:text="${totalPrice}"></span>
-                </li>
-                <li style="font-size: 20px">
-                    Average price:
-                    <span class="border border-success" th:text="${avgValue}"></span>
-                </li>
-            </ul>
+        <div class="col-md-9">
+            <br><br><br><br><br>
+            <div th:if="${not #lists.isEmpty(requests)}">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Req_Id</th>
+                        <th>Req_Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Client_Id</th>
+                        <th>Client_Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="request : ${requests}">
+                        <td th:text="${request.requestId}">RequestId</td>
+                        <td th:text="${request.name}">Name</td>
+                        <td th:text="${request.quantity}">Quantity</td>
+                        <td th:text="${request.price}">Price</td>
+                        <td th:text="${request.clientId}">ClientId</td>
+                        <td th:text="${request.clientName}">ClientName</td>
+                        <td><a style="color: #289dcc"
+                               th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
+                        <td><a style="color: red"
+                               th:href="${'/clients/'+ request.clientId + '/requests/remove/'
+                                + request.requestId}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         </div>
-
-        <br><br><br><br><br><br>
-        <span class="border border-success"
-              style="font-size: 15px; margin-left: 90px">Upload Files</span>
-        <div class="form-group sidebar-buttons">
-            <form class="input-group mb-3" action="#" th:action="@{/requests/upload-xml}" method="post"
-                  enctype="multipart/form-data">
-                <div class="custom-file">
-                    <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile03"/>
-                    <label class="custom-file-label" for="inputGroupFile03">XML file</label>
-                </div>
-                <div class="input-group-append">
-                    <input type="submit" value="Upload" class="input-group-text"/>
-                </div>
-            </form>
-        </div>
-        <div class="form-group sidebar-buttons">
-            <form class="input-group mb-3" action="#" th:action="@{/requests/upload-csv}" method="post"
-                  enctype="multipart/form-data">
-                <div class="custom-file">
-                    <input type="file" name="myFile" class="custom-file-input" id="inputGroupFile04"/>
-                    <label class="custom-file-label" for="inputGroupFile03">CSV file</label>
-                </div>
-                <div class="input-group-append">
-                    <input type="submit" value="Upload" class="input-group-text"/>
-                </div>
-            </form>
-        </div>
-        <div th:if="${not #lists.isEmpty(requests)}">
-            <a th:href="@{/requests/save-xml}">
-                <button type="button" class="btn btn-success btn-sm save-buttons">Save To XML
-                </button>
-            </a>
-            <a th:href="@{/requests/save-csv}">
-                <button type="button" class="btn btn-success btn-sm save-buttons">Save To CSV
-                </button>
-            </a>
-        </div>
-    </div>
-    </div>
-    <div class="col-md-9">
-        <br><br><br><br><br>
-        <div th:if="${not #lists.isEmpty(requests)}">
-            <table class="table table-striped">
-                <tr>
-                    <th>Req_Id</th>
-                    <th>Req_Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Client_Id</th>
-                    <th>Client_Name</th>
-                    <th></th>
-                </tr>
-                <tr th:each="request : ${requests}">
-                    <td th:text="${request.requestId}">RequestId</td>
-                    <td th:text="${request.name}">Name</td>
-                    <td th:text="${request.quantity}">Quantity</td>
-                    <td th:text="${request.price}">Price</td>
-                    <td th:text="${request.clientId}">ClientId</td>
-                    <td th:text="${request.clientName}">ClientName</td>
-                    <td><a style="text-decoration-color: #9400d3"
-                           th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
-                </tr>
-            </table>
-        </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    </div>
     </div>
 </div>
 <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->

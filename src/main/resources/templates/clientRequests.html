@@ -35,8 +35,14 @@
                                 <div class="modal-body">
                                     <ul th:if="${not #lists.isEmpty(clients)}" th:each="client : ${clients}">
                                         <li th:if="${not #lists.isEmpty(client.getRequestDtoList())}">
-                                            <a th:href="${'/requests/clients/'+ client.clientId}">Client Id:
-                                                <span th:text="${client.clientId + ', Name: ' + client.getName()}"></span></a>
+                                            <a th:href="${'/requests/clients/'+ client.clientId}">Client Id :
+                                                <span th:text="${client.clientId}"
+                                                      style="color: #289dcc"></span>
+                                                <span th:text="${', Name : ' + client.getName()}"></span>
+                                                <span>, Total requests : </span>
+                                                <span th:text="${client.getRequestDtoList().size()}"
+                                                      style="color: red"></span>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -49,24 +55,29 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="report">
                     <ul class="btn-group-vertical" data-toggle="buttons">
                         <li style="font-size: 20px">
-                            Total number:
-                            <span class="border border-success" th:text="' ' + ${#lists.size(requestsById)}"></span>
-                        </li>
-                        <li style="font-size: 20px">
-                            Total Price:
-                            <span class="border border-success" th:text="' '+ ${totalPriceById}"></span>
-                        </li>
-                        <li style="font-size: 20px">
-                            Average price:
-                            <span class="border border-success" th:text="' '+${avgValueById}"></span>
-                        </li>
-                        <li style="font-size: 20px">
-                            Client Id:
-                            <span class="border border-success" th:if="${not #lists.isEmpty(requestsById)}"
+                            <span th:text="'Client Id:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:if="${not #lists.isEmpty(requestsById)}"
                                   th:text="' ' + ${requestsById.get(0).clientId}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Total number:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' ' + ${#lists.size(requestsById)}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Total Price:  ' "></span>
+                            <span style="color: #289dcc" class="border border-success"
+                                  th:text="' '+ ${totalPriceById}"></span>
+                        </li>
+                        <li style="font-size: 20px">
+                            <span th:text="'Average price:  ' "></span>
+                            <span style="color: #289dcc;" class="border border-success"
+                                  th:text="' '+${avgValueById}"></span>
                         </li>
                     </ul>
                 </div>
@@ -119,8 +130,7 @@
                         <th>Req_Name</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>Client_Id</th>
-                        <th>Client_Name</th>
+                        <th></th>
                         <th></th>
                     </tr>
                     <tr th:each="request : ${requestsById}">
@@ -128,10 +138,11 @@
                         <td th:text="${request.name}">Name</td>
                         <td th:text="${request.quantity}">Quantity</td>
                         <td th:text="${request.price}">Price</td>
-                        <td th:text="${request.clientId}">ClientId</td>
-                        <td th:text="${request.clientName}">ClientName</td>
-                        <td><a style="text-decoration-color: #9400d3"
+                        <td><a style="color: #289dcc"
                                th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
+                        <td><a style="color: red"
+                               th:href="${'/clients/'+ request.clientId + '/requests/remove/'
+                                + request.requestId}">Delete</a></td>
                     </tr>
                 </table>
             </div>

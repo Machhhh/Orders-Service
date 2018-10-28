@@ -13,31 +13,60 @@
                         </div>
                     </div>
                 </div>
-            </header>
-            <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-                <div class="container">
-                    <a class="navbar-brand" href="/"> OrdeRs SerVice </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="http://localhost:8090/swagger-ui.html#/" target="_blank">
-                                    SwaGGer <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8090/h2-console/" target="_blank">H2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8090/about/" th:href="@{/about}">About</a>
-                            </li>
-                        </ul>
+                <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+                    <div class="container">
+                        <a class="navbar-brand" href="/"> OrdeRs SerVice </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarResponsive"
+                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="http://localhost:8090/admin/requests/"
+                                       th:authorize="hasRole('ROLE_ADMIN')"
+                                       th:if="${#httpServletRequest.remoteUser == 'admin'}" th:inline="text"
+                                       style="color: red">[[${#strings.toUpperCase(#httpServletRequest.remoteUser)}]]</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="http://localhost:8090/client/requests/"
+                                       th:authorize="hasRole('ROLE_USER')"
+                                       th:if="${#httpServletRequest.remoteUser != null
+                                       && #httpServletRequest.remoteUser != 'admin'}" th:inline="text"
+                                       style="color: red">[[${#strings.toUpperCase(#httpServletRequest.remoteUser)}]]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost:8090/swagger-ui.html#/" target="_blank"
+                                       th:if="${#httpServletRequest.remoteUser == 'admin'}">SwaGGer
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost:8090/h2-console/" target="_blank"
+                                       th:if="${#httpServletRequest.remoteUser == 'admin'}">H2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" th:href="@{/clients/login}"
+                                       th:if="${#httpServletRequest.remoteUser == null}">Log-In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" th:href="@{/clients/register}"
+                                       th:if="${#httpServletRequest.remoteUser == null}">Sign-In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" th:href="@{/clients/logout}"
+                                       th:if="${#httpServletRequest.remoteUser != null}">Log-Out</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost:8090/about/"
+                                       th:href="@{/about}">About</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </header>
         </div>
     </div>
+
 </div>

@@ -53,10 +53,10 @@ public class RequestRepositoryIntegrationTest {
 
     @Test
     public void saveRequestTest() {
-        //save request, verify has ID value after save
-        assertNull(request1.getRequestId()); //null before save
+        //update request, verify has ID value after update
+        assertNull(request1.getRequestId()); //null before update
         requestRepository.save(request1);
-        assertNotNull(request1.getRequestId()); //not null after save
+        assertNotNull(request1.getRequestId()); //not null after update
         //fetch from DB
         Request fetchedRequest = requestRepository
                 .findByRequestId(request1.getRequestId());
@@ -67,7 +67,7 @@ public class RequestRepositoryIntegrationTest {
         assertEquals(request1.getName(), fetchedRequest.getName());
         assertEquals(request1.getQuantity(), fetchedRequest.getQuantity());
         assertEquals(request1.getPrice(), fetchedRequest.getPrice());
-        //update description and save
+        //update description and update
         fetchedRequest.setName("Suzuki Hayabusa 1300");
         requestRepository.save(fetchedRequest);
         //get from DB, should be updated

@@ -1,9 +1,19 @@
 <footer class="footer " xmlns:th="http://www.thymeleaf.org">
     <div th:fragment="footer">
-        <div class="fixed-bottom">
-            <ul class=" col-sm-12 float-right">
-                <div>2018 &copy; MacH</div>
+        <div class="fixed-bottom float-left">
+            <ul class=" col-sm-12">
+                <li><span>
+                    2018 &copy; MacH
+                </span></li>
             </ul>
         </div>
+<!--        <div class="float-right">
+            <ul class=" col-sm-12">
+                <li><span th:if="${#httpServletRequest.remoteUser != null}"
+                          th:inline="text"> Hello <span style="color: red">
+                    [[${#strings.capitalize(#httpServletRequest.remoteUser)}]] </span>!</span>
+                </li>
+            </ul>
+        </div>-->
     </div>
 </footer>
