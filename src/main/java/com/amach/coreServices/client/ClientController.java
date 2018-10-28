@@ -34,7 +34,7 @@ public class ClientController {
     }
 
     @GetMapping("/welcome")
-    public String welcome(HttpServletRequest request) {
+    public String welcome(final HttpServletRequest request) {
         if (request.isUserInRole("ROLE_ADMIN")) {
             return "redirect:/admin/requests";
         }
@@ -57,13 +57,13 @@ public class ClientController {
     }
 
     @GetMapping("/client/requests/new")
-    public String newRequest(Model model) {
+    public String newRequest(final Model model) {
         model.addAttribute("request", new RequestCreateDto());
         return "requestNew";
     }
 
     @PostMapping("client/requests/new")
-    public String saveNewRequest(final RequestCreateDto dto, HttpServletRequest request) {
+    public String saveNewRequest(final RequestCreateDto dto, final HttpServletRequest request) {
         Client client = (Client) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         dto.setClientId(client.getId());
         requestFacade.create(dto);
@@ -76,7 +76,7 @@ public class ClientController {
     }
 
     @PutMapping("/apply")
-    public String login(@ModelAttribute ClientCreateDto dto, Model model) {
+    public String login(@ModelAttribute final ClientCreateDto dto, final Model model) {
         if (clientFacade.isClientExists(dto.getLogin())) {
             model.addAttribute("dto", new ClientCreateDto());
             model.addAttribute("message", "Client already exists");
@@ -99,7 +99,7 @@ public class ClientController {
     }
 
     @GetMapping("/clients/register")
-    public String register(Model model) {
+    public String register(final Model model) {
         model.addAttribute("dto", new ClientCreateDto());
         return "register";
     }
@@ -110,13 +110,13 @@ public class ClientController {
     }
 
     @GetMapping("/clients/login/error")
-    public String error(Model model) {
+    public String error(final Model model) {
         model.addAttribute("msg", "Wrong login or password");
         return "login";
     }
 
     @GetMapping("/clients/access/error")
-    public String access(Model model) {
+    public String access(final Model model) {
         model.addAttribute("access", "Access denied, need Admin privileges");
         return "login";
     }
