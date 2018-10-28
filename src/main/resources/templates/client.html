@@ -11,7 +11,7 @@
         <div class="col-md-3">
             <div class="sidebar">
                 <div>
-                    <a href="#" th:href="@{/}">
+                    <a href="#" th:href="@{/client/requests/new}">
                         <button type="button" class="btn btn-success btn-lg sidebar-buttons">Add new
                         </button>
                     </a>
@@ -69,7 +69,8 @@
                         <td><a style="color: #289dcc"
                                th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
                         <td><a style="color: red"
-                               th:href="${'/requests/delete/'+ request.requestId}">Delete</a></td>
+                               th:href="${'/clients/'+ request.clientId + '/requests/remove/'
+                                + request.requestId}">Delete</a></td>
                     </tr>
                 </table>
             </div>

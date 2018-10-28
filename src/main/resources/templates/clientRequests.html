@@ -141,7 +141,8 @@
                         <td><a style="color: #289dcc"
                                th:href="${'/requests/edit/'+ request.requestId}">Edit</a></td>
                         <td><a style="color: red"
-                               th:href="${'/requests/delete/'+ request.requestId}">Delete</a></td>
+                               th:href="${'/clients/'+ request.clientId + '/requests/remove/'
+                                + request.requestId}">Delete</a></td>
                     </tr>
                 </table>
             </div>

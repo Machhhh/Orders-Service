@@ -73,7 +73,7 @@ public class XmlServiceTest {
             file.createNewFile();
         }
         log.info("Xml file: " + "\"" + "testSampleXml.xml" + " created");
-        //convert and save RequestDto list to file
+        //convert and update RequestDto list to file
         XmlRequests xmlRequests = XmlRequests.create()
                 .xmlRequests(expectedData)
                 .build();

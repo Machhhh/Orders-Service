@@ -21,6 +21,10 @@ public class RequestFacade {
         return reqS.findOneByUuid(uuid);
     }
 
+    public RequestCreateDto create(final RequestCreateDto dto) {
+        return reqS.create(dto);
+    }
+
     public RequestDto update(final RequestDto dto) {
         return reqS.update(dto);
     }
@@ -76,6 +80,10 @@ public class RequestFacade {
     public void createRequestDtoFromXmlFile(final XmlRequests xmlRequests) {
         reqS.createRequestDtoFromList(reqS
                 .getRequestDtoListFromXmlRequests(xmlRequests));
+    }
+
+    public void removeByRequestIdAndClientId(final Long requestId, final Long clientId) {
+        reqS.removeByRequestIdAndClientId(requestId, clientId);
     }
 
     public void createRequestDtoFromList(

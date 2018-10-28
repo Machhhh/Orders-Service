@@ -29,8 +29,8 @@ public class ReportFacade {
         return repServ.getRequestById(id);
     }
 
-    public RequestDto save(final RequestDto dto) {
-        return repServ.save(dto);
+    public RequestDto update(final RequestDto dto) {
+        return repServ.update(dto);
     }
 
     public void saveToXml(final List<RequestDto> dtoList)

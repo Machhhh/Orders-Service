@@ -44,10 +44,10 @@ public class ClientRepositoryIntegrationTest {
 
     @Test
     public void saveClientTest() {
-        //null before save
+        //null before update
         assertNull(client1.getId());
         clientRepository.save(client1);
-        //not null after save
+        //not null after update
         assertNotNull(client1.getId());
         //fetch from DB
         Client fetchedClient = clientRepository.findById(client1.getId());
@@ -56,7 +56,7 @@ public class ClientRepositoryIntegrationTest {
         //should equal
         assertEquals(client1.getId(), fetchedClient.getId());
         assertEquals(client1.getName(), fetchedClient.getName());
-        //update description and save
+        //update description and update
         fetchedClient.setName("Pinokio");
         clientRepository.save(fetchedClient);
         //get from DB, should be updated

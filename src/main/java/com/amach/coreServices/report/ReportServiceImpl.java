@@ -42,7 +42,7 @@ class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public RequestDto save(final RequestDto dto) {
+    public RequestDto update(final RequestDto dto) {
         return requestFacade.update(dto);
     }
 
