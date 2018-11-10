@@ -25,7 +25,7 @@ Embedded H2 Database. Deafult  login: **admin**, password: **pass**, **jdbc:h2:m
 ##  How to run application
 
 -   ### From base directory build app
-			mvn clean install
+			mvn clean package
 			mvn spring-boot:run
 -   ### In your browser go to URL address
 			http://localhost:8090/

@@ -1,6 +1,4 @@
-/*insert into authorities
-values(1,'1970-01-01 00:00:01.00','1985-08-18 05:30:00.00',
-'bite my code :)','ADMIN');*/
+--It's just only for testing purpose
 insert into clients
 values(1,'1970-01-01 00:00:01.00','1985-08-18 05:30:00.00',
 'bite my code :)','ordersservice@gmail.com', 'admin', 'mach',

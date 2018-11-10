@@ -1,4 +1,4 @@
-package com.amach.coreServices.exception;
+/*package com.amach.coreServices.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +14,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleRuntimeException(
             final RuntimeException e) {
         e.printStackTrace();
-        return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
-}
+}*/
