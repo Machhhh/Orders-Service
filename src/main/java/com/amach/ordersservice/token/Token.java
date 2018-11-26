@@ -22,4 +22,10 @@ class Token extends BaseEntity {
     private boolean expired;
     @ManyToOne
     private Client client;
+
+    public Token(String token, boolean expired, Client client) {
+        this.token = token;
+        this.expired = expired;
+        this.client = client;
+    }
 }
