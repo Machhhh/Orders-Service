@@ -27,8 +27,7 @@
                         <li style="font-size: 20px">
                             <span th:text="'Client Id:  ' "></span>
                             <span style="color: #289dcc" class="border border-success"
-                                  th:if="${not #lists.isEmpty(requestsById)}"
-                                  th:text="' ' + ${requestsById.get(0).clientId}"></span>
+                                  th:text="' ' + ${clientId}"></span>
                         </li>
                         <li style="font-size: 20px">
                             <span th:text="'Total number:  ' "></span>
