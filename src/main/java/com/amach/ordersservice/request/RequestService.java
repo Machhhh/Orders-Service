@@ -1,6 +1,6 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
-import com.amach.coreServices.utils.xmlParser.XmlRequests;
+import com.amach.ordersservice.utils.xmlParser.XmlRequests;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
-import com.amach.coreServices.client.Client;
-import com.amach.coreServices.common.BaseEntity;
+import com.amach.ordersservice.client.Client;
+import com.amach.ordersservice.common.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;

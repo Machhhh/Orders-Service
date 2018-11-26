@@ -1,6 +1,6 @@
-package com.amach.coreServices.security;
+package com.amach.ordersservice.security;
 
-import com.amach.coreServices.client.ClientRepository;
+import com.amach.ordersservice.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.amach.coreServices.report;
+package com.amach.ordersservice.report;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

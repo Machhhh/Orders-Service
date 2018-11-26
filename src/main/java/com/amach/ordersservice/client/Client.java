@@ -1,7 +1,7 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
-import com.amach.coreServices.common.BaseEntity;
-import com.amach.coreServices.request.Request;
+import com.amach.ordersservice.common.BaseEntity;
+import com.amach.ordersservice.request.Request;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,12 +24,11 @@ public class Client extends BaseEntity {
     @NotNull
     @Size(max = 255)
     private String name;
+    @Column(unique = true)
     private String login;
     private String password;
     private String email;
     private String role;
     @OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
     private List<Request> requests;
-/*    @OneToOne
-    private Authority authority;*/
 }

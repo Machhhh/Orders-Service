@@ -1,4 +1,4 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package com.amach.coreServices.report;
+package com.amach.ordersservice.report;
 
-import com.amach.coreServices.request.RequestDto;
+import com.amach.ordersservice.request.RequestDto;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 

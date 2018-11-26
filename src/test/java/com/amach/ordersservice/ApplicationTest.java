@@ -1,4 +1,4 @@
-package com.amach.coreServices;
+package com.amach.ordersservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

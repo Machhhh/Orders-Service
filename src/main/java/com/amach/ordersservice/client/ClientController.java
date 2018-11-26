@@ -1,8 +1,8 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
-import com.amach.coreServices.report.ReportFacade;
-import com.amach.coreServices.request.RequestCreateDto;
-import com.amach.coreServices.request.RequestFacade;
+import com.amach.ordersservice.report.ReportFacade;
+import com.amach.ordersservice.request.RequestCreateDto;
+import com.amach.ordersservice.request.RequestFacade;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

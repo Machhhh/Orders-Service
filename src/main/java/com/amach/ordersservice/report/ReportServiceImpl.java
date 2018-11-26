@@ -1,9 +1,9 @@
-package com.amach.coreServices.report;
+package com.amach.ordersservice.report;
 
-import com.amach.coreServices.request.RequestDto;
-import com.amach.coreServices.request.RequestFacade;
-import com.amach.coreServices.utils.csvParser.CsvFacade;
-import com.amach.coreServices.utils.xmlParser.XmlFacade;
+import com.amach.ordersservice.request.RequestDto;
+import com.amach.ordersservice.request.RequestFacade;
+import com.amach.ordersservice.utils.csvParser.CsvFacade;
+import com.amach.ordersservice.utils.xmlParser.XmlFacade;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.springframework.beans.factory.annotation.Autowired;

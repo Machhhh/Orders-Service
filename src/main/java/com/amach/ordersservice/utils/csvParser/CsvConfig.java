@@ -1,4 +1,4 @@
-package com.amach.coreServices.utils.csvParser;
+package com.amach.ordersservice.utils.csvParser;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

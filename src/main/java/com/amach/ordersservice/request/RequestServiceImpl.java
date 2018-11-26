@@ -1,11 +1,11 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
-import com.amach.coreServices.client.Client;
-import com.amach.coreServices.client.ClientDto;
-import com.amach.coreServices.client.ClientFacade;
-import com.amach.coreServices.exception.ClientNotFoundException;
-import com.amach.coreServices.exception.RequestNotFoundException;
-import com.amach.coreServices.utils.xmlParser.XmlRequests;
+import com.amach.ordersservice.client.Client;
+import com.amach.ordersservice.client.ClientDto;
+import com.amach.ordersservice.client.ClientFacade;
+import com.amach.ordersservice.exception.ClientNotFoundException;
+import com.amach.ordersservice.exception.RequestNotFoundException;
+import com.amach.ordersservice.utils.xmlParser.XmlRequests;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

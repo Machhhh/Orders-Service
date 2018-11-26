@@ -1,4 +1,4 @@
-package com.amach.coreServices.configuration;
+package com.amach.ordersservice.configuration;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"com.amach.coreServices.client",
-        "com.amach.coreServices.request"})
-@EnableJpaRepositories(basePackages = {"com.amach.coreServices.client",
-        "com.amach.coreServices.request"})
+@EntityScan(basePackages = {"com.amach.ordersservice.client",
+        "com.amach.ordersservice.request"})
+@EnableJpaRepositories(basePackages = {"com.amach.ordersservice.client",
+        "com.amach.ordersservice.request"})
 @EnableTransactionManagement
 public class RepositoryConfiguration {
 }

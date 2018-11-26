@@ -1,4 +1,4 @@
-package com.amach.coreServices.utils.xmlParser;
+package com.amach.ordersservice.utils.xmlParser;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

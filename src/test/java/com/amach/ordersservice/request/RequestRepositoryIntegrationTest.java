@@ -1,7 +1,7 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
-import com.amach.coreServices.client.Client;
-import com.amach.coreServices.configuration.RepositoryConfiguration;
+import com.amach.ordersservice.client.Client;
+import com.amach.ordersservice.configuration.RepositoryConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

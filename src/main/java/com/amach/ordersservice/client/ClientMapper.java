@@ -1,6 +1,6 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
-import com.amach.coreServices.request.RequestMapper;
+import com.amach.ordersservice.request.RequestMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

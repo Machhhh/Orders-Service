@@ -1,7 +1,7 @@
-package com.amach.coreServices.utils.xmlParser;
+package com.amach.ordersservice.utils.xmlParser;
 
-import com.amach.coreServices.request.RequestDto;
-import com.amach.coreServices.request.RequestFacade;
+import com.amach.ordersservice.request.RequestDto;
+import com.amach.ordersservice.request.RequestFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

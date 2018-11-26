@@ -1,8 +1,8 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
-import com.amach.coreServices.utils.MultipartFileConverter;
-import com.amach.coreServices.utils.csvParser.CsvFacade;
-import com.amach.coreServices.utils.xmlParser.XmlFacade;
+import com.amach.ordersservice.utils.MultipartFileConverter;
+import com.amach.ordersservice.utils.csvParser.CsvFacade;
+import com.amach.ordersservice.utils.xmlParser.XmlFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
