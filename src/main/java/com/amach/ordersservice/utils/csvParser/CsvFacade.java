@@ -1,6 +1,6 @@
-package com.amach.coreServices.utils.csvParser;
+package com.amach.ordersservice.utils.csvParser;
 
-import com.amach.coreServices.request.RequestDto;
+import com.amach.ordersservice.request.RequestDto;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import lombok.AllArgsConstructor;

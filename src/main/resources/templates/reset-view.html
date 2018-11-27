@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Orders Service</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <br><br><br><br><br>
+            <div class="form-group">
+                <label for="login" style="color: greenyellow">To reset your password please enter your login:</label>
+            </div>
+            <form action="/passwords/check" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="login" placeholder="Enter login" name="login"/>
+                </div>
+                <div class="form-group fa-pull-right">
+                    <button type="submit" style="background-color: #5BB618"
+                            class="btn btn-success btn-sm -pull-right">Submit
+                    </button>
+                </div>
+            </form>
+            <div class="info-error-red">
+                <span th:text="${error}"></span>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</body>
+</html>

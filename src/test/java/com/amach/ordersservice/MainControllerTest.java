@@ -1,11 +1,11 @@
-package com.amach.coreServices;
+package com.amach.ordersservice;
 
 
-import com.amach.coreServices.client.ClientFacade;
-import com.amach.coreServices.report.ReportFacade;
-import com.amach.coreServices.request.RequestDto;
-import com.amach.coreServices.request.RequestFacade;
-import com.amach.coreServices.utils.MultipartFileConverter;
+import com.amach.ordersservice.client.ClientFacade;
+import com.amach.ordersservice.report.ReportFacade;
+import com.amach.ordersservice.request.RequestDto;
+import com.amach.ordersservice.request.RequestFacade;
+import com.amach.ordersservice.utils.MultipartFileConverter;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;

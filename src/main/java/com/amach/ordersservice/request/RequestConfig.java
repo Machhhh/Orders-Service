@@ -1,4 +1,4 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

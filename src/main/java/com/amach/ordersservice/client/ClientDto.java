@@ -1,6 +1,6 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
-import com.amach.coreServices.request.RequestDto;
+import com.amach.ordersservice.request.RequestDto;
 import lombok.*;
 
 import java.util.List;

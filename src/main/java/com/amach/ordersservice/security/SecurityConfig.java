@@ -1,6 +1,6 @@
-package com.amach.coreServices.security;
+package com.amach.ordersservice.security;
 
-import com.amach.coreServices.client.ClientRepository;
+import com.amach.ordersservice.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,13 +33,17 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().sameOrigin();
         http.cors().disable();
         http.authorizeRequests()
-                .antMatchers("/", "/index", "/about")
+                .antMatchers("/", "/index", "/about", "/login")
+                .permitAll()
+                .antMatchers("/passwords/reset/view")
+                .permitAll()
+                .antMatchers("/passwords/**")
                 .permitAll()
                 .antMatchers(staticResources).permitAll()
-                .antMatchers("/clients/register", "/apply")
+                .antMatchers("/clients/register", "/apply", "/test")
                 .permitAll()
-                .antMatchers("index.html", "error", "client.html",
-                        "register.html", "login.html", "about.html")
+                .antMatchers("index", "error", "test", "client",
+                        "register", "login", "about", "reset-view", "reset-password")
                 .permitAll()
                 .antMatchers("/requests", "/h2-console/**",
                         "/swagger-ui.html#/**", "/api/**")

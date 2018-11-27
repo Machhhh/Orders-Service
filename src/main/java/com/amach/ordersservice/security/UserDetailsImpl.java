@@ -1,6 +1,6 @@
-package com.amach.coreServices.security;
+package com.amach.ordersservice.security;
 
-import com.amach.coreServices.client.Client;
+import com.amach.ordersservice.client.Client;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

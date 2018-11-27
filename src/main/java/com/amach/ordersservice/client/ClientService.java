@@ -1,4 +1,4 @@
-package com.amach.coreServices.client;
+package com.amach.ordersservice.client;
 
 import java.util.List;
 

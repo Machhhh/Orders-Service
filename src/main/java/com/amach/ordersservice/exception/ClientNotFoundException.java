@@ -1,4 +1,4 @@
-package com.amach.coreServices.exception;
+package com.amach.ordersservice.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

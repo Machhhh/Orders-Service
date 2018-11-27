@@ -1,4 +1,4 @@
-package com.amach.coreServices.request;
+package com.amach.ordersservice.request;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.amach.coreServices.common;
+package com.amach.ordersservice.common;
 
 import lombok.Getter;
 

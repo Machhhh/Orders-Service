@@ -1,6 +1,6 @@
-package com.amach.coreServices.utils.xmlParser;
+package com.amach.ordersservice.utils.xmlParser;
 
-import com.amach.coreServices.request.RequestDto;
+import com.amach.ordersservice.request.RequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

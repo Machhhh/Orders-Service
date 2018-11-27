@@ -1,4 +1,4 @@
-package com.amach.coreServices.utils;
+package com.amach.ordersservice.utils;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
