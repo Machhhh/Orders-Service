@@ -374,4 +374,15 @@ a:hover, .btn {
     height: 100%;
 }
 
+.info-error-red {
+    text-align: center;
+    color: red;
+    font-size: medium;
+}
+
+.info-error-green {
+    text-align: center;
+    color: greenyellow;
+    font-size: medium;
+}
 
