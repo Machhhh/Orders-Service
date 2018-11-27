@@ -60,7 +60,7 @@
                     <ul class="btn-group-vertical" data-toggle="buttons">
                         <li style="font-size: 20px">
                             <span th:text="'Client Id:  ' "></span>
-                            <span style="color: #289dcc" class="border border-success"
+                            <span style="color: red" class="border border-success"
                                   th:if="${not #lists.isEmpty(requestsById)}"
                                   th:text="' ' + ${requestsById.get(0).clientId}"></span>
                         </li>

@@ -5,6 +5,7 @@ import com.amach.ordersservice.common.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -22,7 +23,7 @@ public class Request extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long requestId;
     @NotNull
-    @Size(max = 255)
+    @Size(min = 2, max = 128, message = "Name should have atleast 2 characters, and max 128.")
     private String name;
     @NotNull
     private Integer quantity;

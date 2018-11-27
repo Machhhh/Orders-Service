@@ -96,7 +96,7 @@ public class MainController {
         Log.info("Client id: " + clientId + "," +
                 " request id: " + requestId + " removed successfully");
         if (request.isUserInRole("ROLE_ADMIN")) {
-            return "redirect:/admin/requests";
+            return "redirect:/requests/clients/" + clientId;
         }
         return "redirect:/client/requests";
     }
