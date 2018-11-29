@@ -1,5 +1,6 @@
 package com.amach.ordersservice.client;
 
+
 import com.amach.ordersservice.configuration.RepositoryConfiguration;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,19 +10,21 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.transaction.Transactional;
 import java.util.Set;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = {RepositoryConfiguration.class})
-@DataJpaTest
 @DirtiesContext
 @Transactional
+@DataJpaTest
+@ActiveProfiles("test")
 public class ClientRepositoryIntegrationTest {
 
     private Client client1;
@@ -36,9 +39,15 @@ public class ClientRepositoryIntegrationTest {
     public void setUpClient() {
         client1 = Client.create()
                 .name("Wolf")
+                .login("Dangerous")
+                .password("1234")
+                .email("wolf@gmail.com")
                 .build();
         client2 = Client.create()
                 .name("Rabbit")
+                .login("Fast")
+                .password("4321")
+                .email("furious@gmail.com")
                 .build();
     }
 

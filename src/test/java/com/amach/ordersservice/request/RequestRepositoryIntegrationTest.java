@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.transaction.Transactional;
@@ -26,6 +27,7 @@ import static org.junit.Assert.*;
 @DataJpaTest
 @DirtiesContext
 @Transactional
+@ActiveProfiles("test")
 public class RequestRepositoryIntegrationTest {
 
     private Request request1;
@@ -141,6 +143,9 @@ public class RequestRepositoryIntegrationTest {
         //setUp client
         Client client = Client.create()
                 .name("Wolf")
+                .login("Dangerous")
+                .password("1234")
+                .email("wolf@gmail.com")
                 .build();
         // given
         entityManager.persist(client);

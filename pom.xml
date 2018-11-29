@@ -54,11 +54,12 @@
             <artifactId>spring-boot-starter-mail</artifactId>
             <version>2.0.5.RELEASE</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>-->
+            <version>1.4.197</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -142,6 +143,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.12</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
@@ -251,6 +253,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <finalName>docker-orders-service</finalName>
+        <finalName>orders-service</finalName>
     </build>
 </project>

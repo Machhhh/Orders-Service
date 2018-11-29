@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+   <changeSet author="Mach (generated)" id="1543484393101-1">
+      <createTable tableName="clients">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="email" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="login" type="VARCHAR(64)">
+            <constraints nullable="false" unique="true"/>
+         </column>
+         <column name="name" type="VARCHAR(64)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="password" type="VARCHAR(64)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="role" type="VARCHAR(255)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-2">
+      <createTable tableName="requests">
+         <column autoIncrement="true" name="request_id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="name" type="VARCHAR(128)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="price" type="DECIMAL(19, 2)"/>
+         <column name="quantity" type="INT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="client_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-3">
+      <createTable tableName="tokens">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="expired" type="BIT(1)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="token" type="VARCHAR(255)"/>
+         <column name="client_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-4">
+      <createIndex indexName="FKighivj8hbtx35t3p6kxgb8obl" tableName="tokens">
+         <column name="client_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-5">
+      <createIndex indexName="FKljmj9fpy346ea5hejj9ej6x6o" tableName="requests">
+         <column name="client_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-6">
+      <addForeignKeyConstraint baseColumnNames="client_id"
+                               baseTableName="tokens"
+                               constraintName="FKighivj8hbtx35t3p6kxgb8obl"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               onDelete="NO ACTION"
+                               onUpdate="NO ACTION"
+                               referencedColumnNames="id"
+                               referencedTableName="clients"
+                               validate="true"/>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484393101-7">
+      <addForeignKeyConstraint baseColumnNames="client_id"
+                               baseTableName="requests"
+                               constraintName="FKljmj9fpy346ea5hejj9ej6x6o"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               onDelete="NO ACTION"
+                               onUpdate="NO ACTION"
+                               referencedColumnNames="id"
+                               referencedTableName="clients"
+                               validate="true"/>
+   </changeSet>
+    <changeSet author="Mach (generated)" id="1543484464787-1">
+      <createTable tableName="clients">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="email" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="login" type="VARCHAR(64)">
+            <constraints nullable="false" unique="true"/>
+         </column>
+         <column name="name" type="VARCHAR(64)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="password" type="VARCHAR(64)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="role" type="VARCHAR(255)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-2">
+      <createTable tableName="requests">
+         <column autoIncrement="true" name="request_id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="name" type="VARCHAR(128)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="price" type="DECIMAL(19, 2)"/>
+         <column name="quantity" type="INT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="client_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-3">
+      <createTable tableName="tokens">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+         </column>
+         <column name="created_at" type="datetime"/>
+         <column name="updated_at" type="datetime"/>
+         <column name="uuid" type="VARCHAR(255)">
+            <constraints unique="true"/>
+         </column>
+         <column name="expired" type="BIT(1)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="token" type="VARCHAR(255)"/>
+         <column name="client_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-4">
+      <createIndex indexName="FKighivj8hbtx35t3p6kxgb8obl" tableName="tokens">
+         <column name="client_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-5">
+      <createIndex indexName="FKljmj9fpy346ea5hejj9ej6x6o" tableName="requests">
+         <column name="client_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-6">
+      <addForeignKeyConstraint baseColumnNames="client_id"
+                               baseTableName="tokens"
+                               constraintName="FKighivj8hbtx35t3p6kxgb8obl"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               onDelete="NO ACTION"
+                               onUpdate="NO ACTION"
+                               referencedColumnNames="id"
+                               referencedTableName="clients"
+                               validate="true"/>
+   </changeSet>
+   <changeSet author="Mach (generated)" id="1543484464787-7">
+      <addForeignKeyConstraint baseColumnNames="client_id"
+                               baseTableName="requests"
+                               constraintName="FKljmj9fpy346ea5hejj9ej6x6o"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               onDelete="NO ACTION"
+                               onUpdate="NO ACTION"
+                               referencedColumnNames="id"
+                               referencedTableName="clients"
+                               validate="true"/>
+   </changeSet>
+</databaseChangeLog>
