@@ -30,20 +30,21 @@
                                        style="color: red">[[${#strings.toUpperCase(#httpServletRequest.remoteUser)}]]</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="http://localhost:8090/client/requests/"
+                                    <a class="nav-link" href="http://localhost:8080/client/requests/"
                                        th:authorize="hasRole('ROLE_USER')"
                                        th:if="${#httpServletRequest.remoteUser != null
                                        && #httpServletRequest.remoteUser != 'admin'}" th:inline="text"
                                        style="color: red">[[${#strings.toUpperCase(#httpServletRequest.remoteUser)}]]</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://localhost:8090/swagger-ui.html#/" target="_blank"
+                                    <a class="nav-link" href="http://localhost:8080/swagger-ui.html#/" target="_blank"
                                        th:if="${#httpServletRequest.remoteUser == 'admin'}">SwaGGer
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://localhost:8090/h2-console/" target="_blank"
-                                       th:if="${#httpServletRequest.remoteUser == 'admin'}">H2</a>
+                                    <a class="nav-link" href="http://localhost:8080/h2-console/" target="_blank"
+                                       th:if="${#httpServletRequest.remoteUser != null && #httpServletRequest.remoteUser != 'user'
+                                       && #httpServletRequest.remoteUser != 'admin'}">H2</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" th:href="@{/clients/login}"
@@ -58,7 +59,7 @@
                                        th:if="${#httpServletRequest.remoteUser != null}">Log-Out</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://localhost:8090/about/"
+                                    <a class="nav-link" href="http://localhost:8080/about/"
                                        th:href="@{/about}">About</a>
                                 </li>
                             </ul>

@@ -207,15 +207,15 @@
                     <version>2.0.5.RELEASE</version>
                     <configuration>
                         <mainClass>com.amach.ordersservice.Application</mainClass>
-                        <layout>ZIP</layout>
+                        <layout>JAR</layout>
                     </configuration>
-                    <executions>
+<!--                    <executions>
                         <execution>
                             <goals>
                                 <goal>repackage</goal>
                             </goals>
                         </execution>
-                    </executions>
+                    </executions>-->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -253,6 +253,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <finalName>orders-service</finalName>
+        <!--<finalName>orders-service</finalName>-->
     </build>
 </project>
