@@ -17,6 +17,7 @@
         <gatling.version>2.1.7</gatling.version>
         <gatling-plugin.version>2.1.7</gatling-plugin.version>
         <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+        <start-class>com.amach.ordersservice.Application</start-class>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -207,15 +208,15 @@
                     <version>2.0.5.RELEASE</version>
                     <configuration>
                         <mainClass>com.amach.ordersservice.Application</mainClass>
-                        <layout>JAR</layout>
+                        <layout>ZIP</layout>
                     </configuration>
-<!--                    <executions>
+                    <executions>
                         <execution>
                             <goals>
                                 <goal>repackage</goal>
                             </goals>
                         </execution>
-                    </executions>-->
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

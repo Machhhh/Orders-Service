@@ -6,21 +6,26 @@ It contains some useful configuration items:
 
 -   Spring Boot 
 -   Spring Data JPA + Hibernate
--   Spring Security 
--   H2 embedded database
+-   Spring Security
+-   Spring Email / notifications
+-   Actuator / health
+-   MySQL runtime DB
+-   H2 embedded DB for tests
+-   Liquibase
 -   Swagger 
 -   Project Lombok
 -   Mapstruct
 - Devtools
 -   Thymleaf, Bootstrap, Jquery
 -   Web Mvc Tests, JUnit
+-   Travis CI / Heroku deploy / dynos, clearDB
 -   Scala / Gatling performance, load tests
 - Docker container platform / image
 -  Project created with Maven, IntelliJ IDEA (java version 1.8.0_181)
 
 ##  **Things to be checked before starting the app**
 Spring Security Admin role : Deafult  login: **admin**, password: **pass**
-Embedded H2 Database. Deafult  login: **admin**, password: **pass**, **jdbc:h2:mem:CS**) Note that embedded DB is dropped when closing app. If you wish to use a different database / schema, you will need to override values in application.properties. Ensure that you have a server running and correctly configured in application.properties (default is localhost, port: **8090**)
+MySQL database for runtime /  create scheme, local DB and override app. properties
 
 ##  How to run application
 
@@ -28,7 +33,7 @@ Embedded H2 Database. Deafult  login: **admin**, password: **pass**, **jdbc:h2:m
 			mvn clean package
 			mvn spring-boot:run
 -   ### In your browser go to URL address
-			http://localhost:8090/
+			http://localhost:8080/
 -   ### Option I / clone image from Docker
 			docker pull machhh/orders-service
 -   ### Option II / make fat jar and run it
@@ -39,8 +44,8 @@ Embedded H2 Database. Deafult  login: **admin**, password: **pass**, **jdbc:h2:m
 			mvn gatling:execute
  
 ## Application flow
-Once the application is started, a browser at [http://localhost:8090](http://localhost:8090)
-After login as ADmin, use Swagger to reach REST endpoints [http://localhost:8090/swagger-ui.htm](http://localhost:8090/swagger-ui.htm) , it allows you to make CRUD operations in app. database. To see database use: [http://localhost:8090/h2-console/](http://localhost:8090/h2-console/) 
+Once the application is started, a browser at [http://localhost:8080](http://localhost:8080)
+After login as ADmin, use Swagger to reach REST endpoints [http://localhost:8080/swagger-ui.htm](http://localhost:8080/swagger-ui.htm)
 On the frontend side you can check **requests** in the DB by clicking appropriate  buttons ( all req, req by client id (modal select menu), after that the  report will be generated and printed. (+ total count, total value, avg value of requests) There is also possibility to edit, delete selected request or create new from User role. Report can be saved, uploaded from/ to CSV, XML file (by default files are stored in your user.home directory.
 
 ##  Screens
